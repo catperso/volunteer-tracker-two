@@ -66,4 +66,16 @@ describe '#Volunteer' do
     end
   end
 
+  describe('.find_by_project') do
+    it('returns all volunteers assigned to a specific project') do
+      project = Project.new({title: 'Teaching Kids to Code', id: nil})
+      project.save
+      volunteer1 = Volunteer.new({name: 'Jasmine', project_id: project.id, id: nil})
+      volunteer1.save
+      volunteer2 = Volunteer.new({name: 'Joe', project_id: project.id, id: nil})
+      volunteer2.save
+      expect(Volunteer.find_by_project(project.id)).to(eq([volunteer1, volunteer2]))
+    end
+  end
+
 end
