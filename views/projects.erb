@@ -1,0 +1,18 @@
+<h1>Current Projects</h1>
+<% if @projects.any? %>
+  <ul>
+    <% @projects.each do |project| %>
+      <li><a href="/projects/<%= project.id %>"><strong><%= project.title %></strong></a> - <em><%= project.volunteers.length %> volunteer(s)</em></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are currently no projects started.</p>
+<% end %>
+<br>
+<a href="/projects/new"><button class="btn btn-info">Start a new project!</button></a>
+<a href="/volunteers"><button class="btn btn-warning">View all volunteers!</button></a>
+<hr>
+<form action="/projects" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <button type="submit" class="btn btn-danger">Remove ALL projects and ALL volunteers?</button>
+</form>
