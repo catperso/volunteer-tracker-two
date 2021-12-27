@@ -1,0 +1,18 @@
+<h1><em><%= @volunteer.name %></em></h1>
+<p>This volunteer is working on the project:</p>
+<h1><strong><a href="/projects/<%= @project.id %>"><%= @project.title %></strong></a></h1>
+<br>
+<form action="/projects/<%= @project.id %>/volunteers/<%= @volunteer.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <input id="volunteer_update" name="volunteer_update" type="text" class="form-control" placeholder="Change the name of <%= @volunteer.name %>?" required>
+  <br>
+  <button type="submit" class="btn btn-info">Rename volunteer</button>
+</form>
+<br>
+<a href="/projects"><button class="btn btn-primary">Return to all projects</button></a>
+<a href="/volunteers"><button class="btn btn-warning">Return to all volunteers</button></a>
+<hr>
+<form action="/projects/<%= @project.id %>/volunteers/<%= @volunteer.id %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <button type="submit" class="btn btn-danger">Remove this volunteer?</button>
+</form>
