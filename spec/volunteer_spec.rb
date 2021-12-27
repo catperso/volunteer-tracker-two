@@ -87,4 +87,13 @@ describe '#Volunteer' do
     end
   end
 
+  describe('#delete') do
+    it('allows the user to remove a volunteer') do
+      volunteer1 = Volunteer.new({name: 'Jane', project_id: 1, id: nil})
+      volunteer1.save
+      volunteer1.delete
+      expect(Volunteer.all).to(eq([]))
+    end
+  end
+
 end
