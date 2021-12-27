@@ -38,3 +38,10 @@ get('/projects/:id') do
   @project = Project.find(params[:id].to_i)
   erb(:project)
 end
+
+post('/projects/:id/volunteers') do
+  @project = Project.find(params[:id].to_i)
+  volunteer = Volunteer.new({name: params[:new_volunteer], project_id: @project.id})
+  volunteer.save
+  erb(:project)
+end
