@@ -9,6 +9,6 @@ DB = PG.connect({ dbname: 'volunteer_tracker_test', host: 'db', user: 'postgres'
 describe('visits home page', {:type => :feature}) do
   it('should visit the home page') do
     visit('/')
-    expect(page).to have_content("This is connected to the database volunteer_tracker_test.")
+    expect(page).to have_content("Project Coordinatizer!")
   end
 end
