@@ -54,4 +54,16 @@ describe '#Volunteer' do
       expect(Volunteer.find(volunteer1.id)).to(eq(volunteer1))
     end
   end
+
+  describe('.clear') do
+    it('clears the database of all volunteers') do
+      volunteer1 = Volunteer.new({name: 'Jane', project_id: 1, id: nil})
+      volunteer1.save
+      volunteer2 = Volunteer.new({name: 'Joe', project_id: 1, id: nil})
+      volunteer2.save
+      Volunteer.clear
+      expect(Volunteer.all).to(eq([]))
+    end
+  end
+
 end

@@ -47,4 +47,8 @@ class Volunteer
     volunteers
   end
 
+  def self.clear
+    DB.exec("DELETE FROM volunteers *;")
+  end
+
 end

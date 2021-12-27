@@ -1,10 +1,6 @@
 require ('spec_helper')
 
 describe '#Project' do
-  before(:each) do
-    Project.clear
-  end
-
   describe('#title') do
     it('returns the project title') do
       project = Project.new({title: 'Teaching Kids to Code', id: nil})
@@ -95,6 +91,16 @@ describe '#Project' do
     end
   end
 
+  describe('.clear') do
+    it('clears the database of all projects') do
+      project1 = Project.new({title: 'Teaching Kids to Code', id: nil})
+      project1.save
+      project2 = Project.new({title: 'Teaching Ruby to Kids', id: nil})
+      project2.save
+      Project.clear
+      expect(Project.all).to(eq([]))
+    end
+  end
 
 
 
