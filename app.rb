@@ -23,3 +23,13 @@ delete('/projects') do
   Volunteer.clear
   redirect to('/projects')
 end
+
+get('/projects/new') do
+  erb(:new_project)
+end
+
+post('/projects') do
+  project = Project.new({title: params[:new_project]})
+  project.save
+  redirect to('/projects')
+end
