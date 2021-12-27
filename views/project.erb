@@ -10,12 +10,6 @@
 <% else %>
   <p><em>This project has no volunteers yet</em></p>
 <% end %>
-<br>
-<form action="/projects/<%= @project.id %>/volunteers" method="post">
-  <input type="text" class="form-control" name="new_volunteer" id="new_volunteer" placeholder="Add a new volunteer for <%= @project.title %>!" required>
-  <br>
-  <button type="submit" class="btn btn-success">Add volunteer!</button>
-</form>
 <hr>
 <a href="/projects/<%= @project.id %>/edit"><button class="btn btn-warning">Edit this project</button></a>
-<a href="/projects"><button class="btn btn-info">Return to all projects</button></a>
+<a href="/projects"><button class="btn btn-primary">Return to all projects</button></a>
