@@ -89,6 +89,17 @@ describe '#Project' do
       project.delete
       expect(Project.all).to(eq([]))
     end
+
+    it('also removes all volunteers for the deleted project') do
+      project = Project.new({title: 'Teaching Kids to Code', id: nil})
+      project.save
+      volunteer1 = Volunteer.new({name: 'Jasmine', project_id: project.id, id: nil})
+      volunteer1.save
+      volunteer2 = Volunteer.new({name: 'Joe', project_id: project.id, id: nil})
+      volunteer2.save
+      project.delete
+      expect(Volunteer.all).to(eq([]))
+    end
   end
 
   describe('.clear') do
