@@ -1,0 +1,17 @@
+<h1>All volunteers:</h1>
+<% if @volunteers.any? %>
+  <ul>
+    <% @volunteers.each do |volunteer| %>
+      <li><a href="/projects/<%= volunteer.project_id %>/volunteers/<%= volunteer.id %>"><em><%= volunteer.name %></em></a> - working on <a href="/projects/<%= volunteer.project_id %>"><%= Project.find(volunteer.project_id).title %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no volunteers yet! Choose <a href="/projects">a project</a> to edit and add one there.</p>
+<% end %>
+<br>
+<a href="/projects"><button class="btn btn-info">Return to all projects</button></a>
+<hr>
+<form action="/volunteers" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <button type="submit" class="btn btn-danger">Remove ALL volunteers? (Projects will remain)</button>
+</form>

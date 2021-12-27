@@ -82,3 +82,13 @@ delete('/projects/:project_id/volunteers/:id') do
   @project = Project.find(params[:project_id].to_i)
   erb(:project)
 end
+
+get('/volunteers') do
+  @volunteers = Volunteer.all
+  erb(:volunteers)
+end
+
+delete('/volunteers') do
+  Volunteer.clear
+  redirect to('/')
+end
