@@ -53,7 +53,7 @@ _A webapp for orginizing projects and assigning volunteers to them. All projects
 
 ## Known Bugs
 
-* _Two of the integration tests are commented out because capybara is unable to find the correct input fields to test this functionality. No matter what I tried, it always told me `Unable to find field that is not disabled`. All the rest of the specs (integration or otherwise) are passing as expected._
+* _The `database_backup.sql` file seems to have some kind of strange formatting issue preventing it from being properly loaded by psql, but if you copy the text from it and save it in a txt editor with the required encoding it should work as expected._
 
 ## License - [MIT](https://opensource.org/licenses/MIT)
 
